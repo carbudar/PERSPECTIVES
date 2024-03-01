@@ -199,60 +199,73 @@
     color: #ddff92;
     font-family: Cormorant Garamond;
     font-weight: 600;
-    
-
  
 }
 
 
 .upButton { /*homepage button 1 */
-    display:flex;
+    display:grid;
     grid-row-start: 1;
     grid-row-end: 1;
     grid-column-start: 1;
-    grid-column-end: 15;
+    grid-column-end: 16;
     flex-direction: row;
     justify-content: center;
     padding-top: 1vh;
-    z-index: 1;
+    z-index: 3;
+    height:100%;
+    transition: height 2s;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 .upButton:hover{
     background-color: white;
-    opacity: 30%;
+    opacity:30%;
+    height:150%;
 }
 
 .downButton { /*homepage button 1 */
-    display:flex;
-    grid-row-start: 16;
-    grid-row-end: 17;
+    display:grid;
+    grid-row-start: 17;
+    grid-row-end: 16;
     grid-column-start: 1;
     grid-column-end: 15;
     flex-direction: row;
     justify-content: center;
     padding-top: 1vh;
-    z-index: 1;
+    z-index: 3;
+    height:100%;
+    transition: height 2s, transform 2s;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .downButton:hover{
     background-color: white;
     opacity: 30%;
+    height:150%;
+    transform: translateY(-50%);
 }
 
 
 .leftButton{
-    display:flex;
+    display:grid;
     grid-row-start: 1;
     grid-row-end: 18;
     grid-column-start: 1;
     width:2vw;
-    flex-direction: row;
     justify-content: center;
     padding-top: 50vh;
     z-index: 1;
+    width:20%;
+    transition: width 2s;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 
 }.leftButton:hover{
     background-color: white;
     opacity: 30%;
+    width:50%;
 }
 
 .rightButton{
@@ -261,14 +274,20 @@
     grid-row-end: 17;
     grid-column-end: 12;
     width:2vw;
+    
 
     padding-top: 50vh;
     z-index: 1;
     justify-content: end ;
+    transition: width 2s, transform 2s;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 .rightButton:hover{
     background-color: white;
     opacity: 30%;
+    
+    transform: translateX(-50%);
 }
 .title{
     color: #ddff92; 
@@ -289,6 +308,7 @@
     align-content: center;
     place-self:center;
 }
+
 
 .text1{
     height:auto;
@@ -385,7 +405,7 @@
     text-align:right;
 }
 
-.content2{
+#content2{
     display:grid;
     backdrop-filter: blur(3px);
     padding: 10px;
@@ -899,5 +919,41 @@
 
 }
 
+@keyframes slideInFromLeft { /*slide right*/
+   from {
+       transform: translateX(-100%);
+   }
+   to {
+       transform: translateX(0);
+   }
+}
 
+.slide-right { 
+   animation: slideInFromLeft 3s ease forwards;
+}
 
+@keyframes slideInFromRight {/*slide left*/
+   from {
+       transform: translateX(100%);
+   }
+   to {
+       transform: translateX(0);
+   }
+}
+
+.slide-left {
+   animation: slideInFromRight 3s ease forwards;
+}
+
+@keyframes slideInFromTop {/*slide down*/
+   from {
+       transform: translateY(-100%);
+   }
+   to {
+       transform: translateY(0);
+   }
+}
+
+.slide-down {
+   animation: slideInFromTop 3s ease forwards;
+}
